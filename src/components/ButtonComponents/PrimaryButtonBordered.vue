@@ -1,33 +1,27 @@
 <template>
-    <button
+    <BaseButton 
+        :borderColor="props.disabled ? 'border-gray-500': 'border-primary-500'"
+        :fullWidth="props.fullWidth"
         :disabled="props.disabled"
-        type="button"
-        :class="[{
-            'w-full': props.fullWidth
-        }, 
-        ]"
-        @click="emit('handleClick')"
+        :buttonText="props.buttonText"
+        :paddingWidth="props.paddingWidth"
+        :paddingHeight="props.paddingHeight"
+        :marginWidth="props.marginWidth"
+        :marginHeight="props.marginHeight"
+        :roundedType="props.roundedType"
+        :fontBoldType="props.fontBoldType"
     >
-        <div 
-            :class="[{
-                'border': props.borderColor,
-                'border-solid': props.borderColor
-            },
-                props.paddingWidth,
-                props.paddingHeight,
-                props.marginWidth,
-                props.marginHeight,
-                props.backgroundColor,
-                props.roundedType,
-                props.fontBoldType,
-                props.borderColor,
-            ]"
-        >
+        <div :class="{
+            'text-primary-700': !props.disabled,
+            'text-gray-700': props.disabled
+        }">
             <slot>Button Text</slot>
         </div>
-    </button>
+    </BaseButton>
 </template>
 <script setup lang="ts">
+
+import BaseButton from './BaseButton.vue';
 
 const props = defineProps({
     fullWidth: {
@@ -58,14 +52,6 @@ const props = defineProps({
         type: String,
         default: 'my-4'
     },
-    backgroundColor: {
-        type: String,
-        default: ''
-    },
-    borderColor: {
-        type: String,
-        default: ''
-    },
     roundedType: {
         type: String,
         default: 'rounded-md'
@@ -75,10 +61,5 @@ const props = defineProps({
         default: ''
     }
 });
-
-
-const emit = defineEmits<{
-    (e: 'handleClick'): void
-}>();
 
 </script>

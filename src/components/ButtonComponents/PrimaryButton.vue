@@ -21,7 +21,7 @@
 </template>
 <script setup lang="ts">
 
-import BaseButton from '@/components/ButtonComponents/BaseButton.vue';
+import BaseButton from './BaseButton.vue';
 
 const props = defineProps({
     fullWidth: {
@@ -51,10 +51,6 @@ const props = defineProps({
     marginHeight: {
         type: String,
         default: 'my-4'
-    },
-    backgroundColor: {
-        type: String,
-        default: ''
     },
     roundedType: {
         type: String,
