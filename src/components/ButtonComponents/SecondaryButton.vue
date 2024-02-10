@@ -1,6 +1,6 @@
 <template>
     <BaseButton 
-        :backgroundColor="props.disabled ? 'bg-gray-500': 'bg-primary-500'"
+        :backgroundColor="props.disabled ? 'bg-gray-500': 'bg-standard-500'"
         :fullWidth="props.fullWidth"
         :disabled="props.disabled"
         :buttonText="props.buttonText"
@@ -12,7 +12,7 @@
         :fontBoldType="props.fontBoldType"
     >
         <div :class="{
-            'text-primary-50': !props.disabled,
+            'text-standard-50': !props.disabled,
             'text-gray-50': props.disabled
         }">
             <slot>Button Text</slot>
