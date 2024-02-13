@@ -3,7 +3,8 @@
         :disabled="props.disabled"
         type="button"
         :class="[{
-            'w-full': props.fullWidth
+            'w-full': props.fullWidth,
+            'w-fit': !props.fullWidth
         }, 
         ]"
         @click="emit('handleClick')"
@@ -52,11 +53,11 @@ const props = defineProps({
     },
     marginWidth: {
         type: String,
-        default: 'mx-6'
+        default: ''
     },
     marginHeight: {
         type: String,
-        default: 'my-4'
+        default: ''
     },
     backgroundColor: {
         type: String,

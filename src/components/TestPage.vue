@@ -90,7 +90,6 @@
     </div>
 </template>
 <script setup lang="ts">
-import BaseButton from '@/components/ButtonComponents/BaseButton.vue';
 import PrimaryButton from '@/components/ButtonComponents/PrimaryButton.vue';
 import PrimaryButtonBordered from '@/components/ButtonComponents/PrimaryButtonBordered.vue';
 import SecondaryButton from '@/components/ButtonComponents/SecondaryButton.vue';

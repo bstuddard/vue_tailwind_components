@@ -40,11 +40,11 @@ const props = defineProps({
     },
     marginWidth: {
         type: String,
-        default: 'mx-6'
+        default: ''
     },
     marginHeight: {
         type: String,
-        default: 'my-4'
+        default: ''
     },
     fontBoldType: {
         type: String,
