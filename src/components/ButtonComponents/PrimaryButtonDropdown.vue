@@ -1,7 +1,7 @@
 <template>
     <div class="relative w-fit" :class="[props.marginWidth, props.marginHeight]">
         <PrimaryButton 
-            @handleClick="emit('handleClick')"
+            @buttonClick="emit('buttonClick')"
             :backgroundColor="props.disabled ? 'bg-gray-500': 'bg-primary-500'"
             :fullWidth="props.fullWidth"
             :disabled="props.disabled"
@@ -37,7 +37,7 @@
         </PrimaryButton>
         <menu v-if="showDropdownList" class="absolute top-full left-0 w-full bg-white rounded-b-md shadow-md z-20">
             <li v-for="item in menuItemList" :key="item" class="w-full m-3">
-                <button type="button" class="w-full text-left" @click.stop="emit('handleMenuClick', item); showDropdownList=false;">
+                <button type="button" class="w-full text-left" @click.stop="emit('buttonMenuClick', item); showDropdownList=false;">
                     <span class="p-2 text-primary-700">{{ item }}</span>
                 </button> 
             </li>
@@ -88,8 +88,8 @@ const props = defineProps({
 });
 
 const emit = defineEmits<{
-    (e: 'handleMenuClick', menuItemName: string): void,
-    (e: 'handleClick'): void
+    (e: 'buttonMenuClick', menuItemName: string): void,
+    (e: 'buttonClick'): void
 }>();
 
 </script>

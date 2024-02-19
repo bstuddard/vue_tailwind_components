@@ -7,7 +7,7 @@
             'w-fit': !props.fullWidth
         }, 
         ]"
-        @click="emit('handleClick')"
+        @click="emit('buttonClick')"
     >
         <div 
             :class="[{
@@ -79,7 +79,7 @@ const props = defineProps({
 
 
 const emit = defineEmits<{
-    (e: 'handleClick'): void
+    (e: 'buttonClick'): void
 }>();
 
 </script>
