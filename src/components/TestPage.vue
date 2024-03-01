@@ -136,6 +136,25 @@
                     </ul>
                 </template>
             </InformationExpand>
+            <div class="py-2"></div>
+
+            <div class="text-md mx-auto italic font-light py-4 w-full text-center text-standard-600">
+                Inputs
+            </div>
+
+            <InputFooter footerText="Input Footer Text"/>
+            <div class="py-2"></div>
+
+            <InputFooter footerText="Input Footer Disabled" :disabled="true"/>
+            <div class="py-2"></div>
+
+            <InputFieldWrapper footerText="Example Input Field Wrapper" fieldId="abc">
+                <p>Input form here...</p>
+            </InputFieldWrapper>
+            <div class="py-2"></div>
+
+            <TextInputField footerText="Example Text Input Field" fieldId="abc" @textInputUpdate="(newText) => console.log(newText)"/>
+            <div class="py-2"></div>
 
         </div>
     </div>
@@ -156,6 +175,9 @@ import SecondaryButtonDropdown from '@/components/ButtonComponents/SecondaryButt
 import GenericModal from '@/components/ModalComponents/GenericModal.vue';
 import ConfirmationModal from '@/components/ModalComponents/ConfirmationModal.vue';
 import InformationExpand from '@/components/ModalComponents/InformationExpand.vue';
+import InputFooter from '@/components/InputComponents/InputFooter.vue';
+import InputFieldWrapper from '@/components/InputComponents/InputFieldWrapper.vue';
+import TextInputField from '@/components/InputComponents/TextInputField.vue';
 
 const showGenericModal: Ref<boolean> = ref(false);
 const showConfirmationModal: Ref<boolean> = ref(false);
