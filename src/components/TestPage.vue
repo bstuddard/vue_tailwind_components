@@ -156,6 +156,17 @@
             <TextInputField footerText="Example Text Input Field" fieldId="abc" @textInputUpdate="(newText) => console.log(newText)"/>
             <div class="py-2"></div>
 
+            <ArrowButton arrowType="left" arrowLabel="Arrow Label" @arrowClick="console.log('Left arrow clicked')"/>
+            <ArrowButton arrowType="down" arrowLabel="Arrow Label" @arrowClick="console.log('Down arrow clicked')"/>
+            <ArrowButton arrowType="right" arrowLabel="Arrow Label" @arrowClick="console.log('Right arrow clicked')"/>
+            <ArrowButton arrowType="up" arrowLabel="Arrow Label" @arrowClick="console.log('Up arrow clicked')"/>
+            <div class="py-2"></div>
+
+            
+            <NumberInputField footerText="Example Text Input Field" @numberInputUpdate="(updatedNumber) => console.log(updatedNumber)"/>
+            <NumberInputField footerText="Example Text Input Field" :arrowEnabled="true" :arrowIncrementDecrement="5" @numberInputUpdate="(updatedNumber) => console.log(updatedNumber)"/>
+            <NumberInputField footerText="Example Text Input Field" :arrowEnabled="true" arrowDirection="vertical" :arrowIncrementDecrement="5" @numberInputUpdate="(updatedNumber) => console.log(updatedNumber)"/>
+
         </div>
     </div>
 </template>
@@ -178,6 +189,8 @@ import InformationExpand from '@/components/ModalComponents/InformationExpand.vu
 import InputFooter from '@/components/InputComponents/InputFooter.vue';
 import InputFieldWrapper from '@/components/InputComponents/InputFieldWrapper.vue';
 import TextInputField from '@/components/InputComponents/TextInputField.vue';
+import ArrowButton from '@/components/ButtonComponents/ArrowButton.vue';
+import NumberInputField from '@/components/InputComponents/NumberInputField.vue';
 
 const showGenericModal: Ref<boolean> = ref(false);
 const showConfirmationModal: Ref<boolean> = ref(false);

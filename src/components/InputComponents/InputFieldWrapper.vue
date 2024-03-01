@@ -8,7 +8,7 @@
                 {{ props.footerText }}
             </label>
             <slot></slot>
-            <InputFooter :footerText="props.footerText" :textLocation="props.textLocation" :padding="props.padding" :mrAll="props.margin" :disabled="props.disabled"/>
+            <InputFooter :footerText="props.footerText" :textLocation="props.textLocation" :padding="props.padding" :margin="props.margin" :disabled="props.disabled"/>
         </div>
     </div>
 </template>

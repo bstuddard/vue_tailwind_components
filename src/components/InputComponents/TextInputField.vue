@@ -13,9 +13,11 @@
             :value="inputTerm"
             @input="handleTextInputUpdate"
             @change="handleTextInputUpdate"
-            :id="props.fieldID + '_input'"
+            :id="props.fieldID"
+            :class="{'text-gray-400': props.disabled, 'text-standard-700': !props.disabled}"
             class="rounded-md bg-standardb p-2 peer w-full"
             :placeholder="props.helpText"
+            :disabled="props.disabled"
         >
     </InputFieldWrapper>
 </template>
