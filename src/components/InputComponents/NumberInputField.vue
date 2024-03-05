@@ -1,13 +1,13 @@
 <template>
     <div :class="{
-            'flex-row': arrowDirection === 'horizontal', 
-            'flex-col-reverse': arrowDirection === 'vertical',
+            'flex-row': props.arrowDirection === 'horizontal', 
+            'flex-col-reverse': props.arrowDirection === 'vertical',
             'w-full': props.fullWidth,
             'w-fit': !props.fullWidth,
-            'gap-1': arrowDirection === 'horizontal'
+            'gap-1': props.arrowDirection === 'horizontal'
         }" class="flex items-center justify-center">
-        <ArrowButton v-if="arrowEnabled && arrowDirection === 'horizontal'" arrowType="left" :arrowLabel="'- ' + props.arrowIncrementDecrement" @arrowClick="inputNumber -= props.arrowIncrementDecrement; emit('numberInputUpdate', inputNumber ? inputNumber : 0);"/>
-        <ArrowButton v-if="arrowEnabled && arrowDirection === 'vertical'" arrowType="down" @arrowClick="inputNumber -= props.arrowIncrementDecrement; emit('numberInputUpdate', inputNumber ? inputNumber : 0);"/>
+        <ArrowButton v-if="props.arrowEnabled && props.arrowDirection === 'horizontal' && !props.disabled" arrowType="left" :arrowLabel="'- ' + props.arrowIncrementDecrement" @arrowClick="inputNumber -= props.arrowIncrementDecrement; emit('numberInputUpdate', inputNumber ? inputNumber : 0);"/>
+        <ArrowButton v-if="props.arrowEnabled && props.arrowDirection === 'vertical' && !props.disabled" arrowType="down" @arrowClick="inputNumber -= props.arrowIncrementDecrement; emit('numberInputUpdate', inputNumber ? inputNumber : 0);"/>
         <InputFieldWrapper 
             :footerText="props.footerText" 
             :padding="props.padding" 
@@ -30,8 +30,8 @@
                     :disabled="props.disabled"
                 >
         </InputFieldWrapper>
-        <ArrowButton v-if="arrowEnabled && arrowDirection === 'horizontal'" arrowType="right" :arrowLabel="'+ ' + props.arrowIncrementDecrement"  @arrowClick="inputNumber += props.arrowIncrementDecrement; emit('numberInputUpdate', inputNumber ? inputNumber : 0);"/>
-        <ArrowButton v-if="arrowEnabled && arrowDirection === 'vertical'" arrowType="up" :arrowLabel="'+ ' + props.arrowIncrementDecrement"  @arrowClick="inputNumber += props.arrowIncrementDecrement; emit('numberInputUpdate', inputNumber ? inputNumber : 0);"/>
+        <ArrowButton v-if="props.arrowEnabled && props.arrowDirection === 'horizontal' && !props.disabled" arrowType="right" :arrowLabel="'+ ' + props.arrowIncrementDecrement"  @arrowClick="inputNumber += props.arrowIncrementDecrement; emit('numberInputUpdate', inputNumber ? inputNumber : 0);"/>
+        <ArrowButton v-if="props.arrowEnabled && props.arrowDirection === 'vertical' && !props.disabled" arrowType="up" :arrowLabel="'+ ' + props.arrowIncrementDecrement"  @arrowClick="inputNumber += props.arrowIncrementDecrement; emit('numberInputUpdate', inputNumber ? inputNumber : 0);"/>
     </div>
 </template>
 <script setup lang="ts">
