@@ -36,7 +36,7 @@
 </template>
 <script setup lang="ts">
 // Library
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 // Types
 import type { Ref } from 'vue';
@@ -45,7 +45,7 @@ import type { Ref } from 'vue';
 import InputFieldWrapper from './InputFieldWrapper.vue';
 import ArrowButton from './../ButtonComponents/ArrowButton.vue'
 
-const inputNumber: Ref<number | null> = ref(null);
+const inputNumber: Ref<number> = ref(0);
 
 const props = defineProps({
     footerText: {
@@ -90,6 +90,10 @@ const props = defineProps({
     arrowIncrementDecrement: {
         type: Number,
         default: 1
+    },
+    startingNumberAmount: {
+        type: Number,
+        default: null
     }
 });
 
@@ -112,5 +116,12 @@ function handleNumberInputUpdate(e: Event): void {
     emit('numberInputUpdate', inputNumber.value ? inputNumber.value : 0);
 }
 
+
+async function mountOperations() {
+    if (props.startingNumberAmount) {
+        inputNumber.value = props.startingNumberAmount;
+    }
+}
+onMounted(mountOperations);
 
 </script>
