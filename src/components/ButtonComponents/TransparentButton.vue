@@ -2,12 +2,12 @@
     <BaseButton 
         :fullWidth="props.fullWidth"
         :disabled="props.disabled"
-        :buttonText="props.buttonText"
         :paddingWidth="props.paddingWidth"
         :paddingHeight="props.paddingHeight"
         :marginWidth="props.marginWidth"
         :marginHeight="props.marginHeight"
         :fontBoldType="props.fontBoldType"
+        @buttonClick="emit('buttonClick')"
     >
     <div :class="[{
         },
@@ -29,10 +29,6 @@ const props = defineProps({
     disabled: {
         type: Boolean,
         default: false
-    },
-    buttonText: {
-        type: String,
-        default: 'Button Text'
     },
     paddingWidth: {
         type: String,
@@ -59,5 +55,10 @@ const props = defineProps({
         default: 'text-standard-700'
     }
 });
+
+
+const emit = defineEmits<{
+    (e: 'buttonClick'): void
+}>();
 
 </script>

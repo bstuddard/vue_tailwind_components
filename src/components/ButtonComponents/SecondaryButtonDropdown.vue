@@ -5,7 +5,6 @@
             :backgroundColor="props.disabled ? 'bg-gray-500': 'bg-standard-500'"
             :fullWidth="props.fullWidth"
             :disabled="props.disabled"
-            :buttonText="props.buttonText"
             marginWidth="mx-0"
             marginHeight="my-0"
             :roundedType="props.roundedType"
@@ -60,10 +59,6 @@ const props = defineProps({
     disabled: {
         type: Boolean,
         default: false
-    },
-    buttonText: {
-        type: String,
-        default: 'Button Text'
     },
     marginWidth: {
         type: String,

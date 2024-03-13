@@ -3,13 +3,13 @@
         :borderColor="props.disabled ? 'border-gray-500': 'border-primary-500'"
         :fullWidth="props.fullWidth"
         :disabled="props.disabled"
-        :buttonText="props.buttonText"
         :paddingWidth="props.paddingWidth"
         :paddingHeight="props.paddingHeight"
         :marginWidth="props.marginWidth"
         :marginHeight="props.marginHeight"
         :roundedType="props.roundedType"
         :fontBoldType="props.fontBoldType"
+        @buttonClick="emit('buttonClick')"
     >
         <div :class="{
             'text-primary-700': !props.disabled,
@@ -31,10 +31,6 @@ const props = defineProps({
     disabled: {
         type: Boolean,
         default: false
-    },
-    buttonText: {
-        type: String,
-        default: 'Button Text'
     },
     paddingWidth: {
         type: String,
@@ -61,5 +57,10 @@ const props = defineProps({
         default: ''
     }
 });
+
+
+const emit = defineEmits<{
+    (e: 'buttonClick'): void
+}>();
 
 </script>

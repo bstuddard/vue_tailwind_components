@@ -2,13 +2,13 @@
     <TransparentButton 
         :fullWidth="props.fullWidth"
         :disabled="props.disabled"
-        :buttonText="props.buttonText"
         :paddingWidth="props.paddingWidth"
         :paddingHeight="props.paddingHeight"
         :marginWidth="props.marginWidth"
         :marginHeight="props.marginHeight"
         :fontBoldType="props.fontBoldType"
         textColor="text-red-600"
+        @buttonClick="emit('buttonClick')"
     >
         <slot>Button Text</slot>
     </TransparentButton>
@@ -25,10 +25,6 @@ const props = defineProps({
     disabled: {
         type: Boolean,
         default: false
-    },
-    buttonText: {
-        type: String,
-        default: 'Button Text'
     },
     paddingWidth: {
         type: String,
@@ -51,5 +47,10 @@ const props = defineProps({
         default: ''
     }
 });
+
+
+const emit = defineEmits<{
+    (e: 'buttonClick'): void
+}>();
 
 </script>

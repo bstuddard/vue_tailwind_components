@@ -39,10 +39,6 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-    buttonText: {
-        type: String,
-        default: 'Button Text'
-    },
     paddingWidth: {
         type: String,
         default: 'px-4'
